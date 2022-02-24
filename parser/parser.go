@@ -22,7 +22,12 @@ func getSubstr(str string) int {
 	return 0
 }
 
-func Parse(str string) (string, int) {
+func Parse(str string) string {
+	result, _ := parse_string(str)
+	return result
+}
+
+func parse_string(str string) (string, int) {
 	res := ""
 	for i := 0; i < len(str); i++ {
 		if str[i] == '}' {
@@ -31,7 +36,7 @@ func Parse(str string) (string, int) {
 		if str[i] >= '0' && str[i] <= '9' {
 			a := int(str[i] - '0')
 
-			res2, b := Parse(str[i+2:])
+			res2, b := parse_string(str[i+2:])
 
 			res = res + strings.Repeat(res2, a)
 			i += b + 2

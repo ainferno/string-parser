@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-	res, _ := parser.Parse("0{ab}2{ab}")
+	res := parser.Parse("2{}2{a}")
 	// res := strings.Repeat("a", 0)
 	fmt.Println(res)
 }
